@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ block.super }} {{ title }}
+{% endblock title %}
+
+
+{% block main %}
+
+{% include 'store/components/index/_characteristics.html' %}
+
+{% include 'store/components/index/_categories.html' %}
+
+{% include 'store/components/index/_our_products.html' %}
+
+{% include 'store/components/index/_best_price.html' %}
+
+{% include 'store/components/index/_reviews.html' %}
+
+<hr>
+
+{% include 'store/components/index/_partners.html' %}
+
+{% include 'store/components/_email.html' %}
+
+{% endblock main %}

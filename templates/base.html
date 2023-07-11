@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        {% block title %}
+        Vegefoods -
+        {% endblock title %}
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'store/css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/jquery.timepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+</head>
+<body class="goto-here">
+{% include 'components/_green_line.html' %}
+
+
+{% include 'components/_navbar.html' %}
+<!-- END nav -->
+{% block slider %}
+{% include 'components/_slider.html' %}
+{% endblock slider %}
+
+{% if messages %}
+{% for message in messages %}
+    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+        {{  message }}
+    </div>
+{% endfor %}
+{% endif %}
+
+{% block main %}
+{% endblock main %}
+{% include 'components/_footer.html' %}
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script src="{% static 'store/js/jquery.min.js' %}"></script>
+<script src="{% static 'store/js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'store/js/popper.min.js' %}"></script>
+<script src="{% static 'store/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'store/js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'store/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'store/js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'store/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'store/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'store/js/aos.js' %}"></script>
+<script src="{% static 'store/js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'store/js/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'store/js/scrollax.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="{% static 'store/js/google-map.js' %}"></script>
+<script src="{% static 'store/js/main.js' %}"></script>
+
+</body>
+</html>

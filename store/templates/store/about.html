@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block slider %}
+ <div class="hero-wrap hero-bread" style="background-image: url('{% static 'store/images/bg_1.jpg' %}');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>About us</span></p>
+            <h1 class="mb-0 bread">About us</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock slider %}
+
+{% block main %}
+    {% include 'store/components/about/_welcome.html' %}
+
+    {% include 'store/components/_email.html' %}
+
+    {% include 'store/components/about/_statistic.html' %}
+
+    {% include 'store/components/index/_reviews.html' %}
+
+    {% include 'store/components/about/_characteristics.html' %}
+{% endblock main %}

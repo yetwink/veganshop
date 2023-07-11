@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ block.super }} {{ title }}
+{% endblock title %}
+
+{% block slider %}
+<div class="hero-wrap hero-bread" style="background-image: url('{% static 'store/images/bg_1.jpg' %}');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a
+                        href="index.html">Login</a></span> <span>Register</span></p>
+                <h1 class="mb-0 bread">Login Register</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock slider %}
+
+{% block main %}
+<section class="ftco-section">
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <div class="p-4" style="width: 350px; border: 2px grey solid;">
+                <h3 class="title text-center">Login</h3>
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    {{ login_form.as_p }}
+
+                    <button class="btn btn-black py-3 px-5" type="submit">Login</button>
+                </form>
+            </div>
+            <div class="p-4" style="width: 700px; border: 2px grey solid;">
+                <h3 class="title text-center">Register</h3>
+                <form action="{% url 'register' %}" method="post">
+                    <div class="register row row-cols-1 row-cols-md-2 g-4">
+                    {% csrf_token %}
+                    {{ register_form.as_p }}
+                    </div>
+                   <button class="btn btn-black py-3 px-5" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main %}

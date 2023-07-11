@@ -1,0 +1,9 @@
+{% load store_tags %}
+<ul class="product-category">
+    {% get_categories as categories %}
+
+    <li><a href="{% url 'shop' %}" class="{% if not request.GET.category %}{{ 'active' }}{% endif %}">Все</a></li>
+    {% for category in categories %}
+    <li><a href="?category={{ category.slug }}" class="{% if request.GET.category == category.slug %}{{ 'active' }}{% endif %}">{{ category.title }}</a></li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,56 @@
+<section class="ftco-section">
+      <div class="container">
+          <form action="{% url 'payment' %}" method="post" class="billing-form">
+        <div class="row justify-content-center">
+          <div class="col-xl-7 ftco-animate">
+							<h3 class="mb-4 billing-heading">Billing Details</h3>
+	          	<div class="row align-items-end">
+                    {% csrf_token %}
+                    {% for field in shipping_form %}
+	          		<div class="col-md-12">
+	                <div class="form-group">
+	                	<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+	                  {{ field }}
+	                </div>
+	              </div>
+	                {% endfor %}
+	            </div>
+
+					</div>
+					<div class="col-xl-5">
+	          <div class="row mt-5 pt-3">
+	          	<div class="col-md-12 d-flex mb-5">
+	          		<div class="cart-detail cart-total p-3 p-md-4">
+	          			<h3 class="billing-heading mb-4">Cart Total</h3>
+	          			<p class="d-flex">
+		    						<span>Subtotal</span>
+		    						<span>${{ cart_total_price }}</span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>Delivery</span>
+		    						<span>$0.00</span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>Total quantity</span>
+		    						<span>{{ cart_total_quantity }}</span>
+		    					</p>
+		    					<hr>
+		    					<p class="d-flex total-price">
+		    						<span>Total</span>
+		    						<span>${{ cart_total_price }}</span>
+		    					</p>
+								</div>
+	          	</div>
+	          	<div class="col-md-12">
+	          		<div class="cart-detail p-3 p-md-4">
+	          			<h3 class="billing-heading mb-4">Payment</h3>
+
+                        <p><button type="submit" class="btn btn-primary py-3 px-4">Place an order</button></p>
+                    </div>
+	          	</div>
+	          </div>
+          </div> <!-- .col-md-8 -->
+        </div>
+          </form><!-- END -->
+      </div>
+    </section>
